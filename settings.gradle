@@ -1,2 +1,3 @@
 rootProject.name = 'yulin'
+include 'yulin-utils'
 
