@@ -1,9 +1,11 @@
 plugins {
+    id 'java-library'
     id 'java'
     id 'maven-publish'
 }
 
 subprojects {
+    apply plugin: 'java-library'
     apply plugin: 'java'
     apply plugin: "maven-publish"
     group 'io.github.tinyking'
@@ -15,16 +17,30 @@ subprojects {
                 name = "GitHubPackages"
                 url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
                 credentials {
-//                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-//                    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-                    username = "tinyking"
-                    password = "aa91e09f9a693a49816ad4d8547e1096f25f2a9f"
+                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
                 }
             }
         }
         publications {
             gpr(MavenPublication) {
                 from(components.java)
+
+                pom {
+                    licenses {
+                        license {
+                            name = "The Apache License, Version 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "tinyking"
+                            name = "Jianchao Wang"
+                            email = "akingchao@qq.com"
+                        }
+                    }
+                }
             }
         }
     }
