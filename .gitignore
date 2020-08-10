@@ -26,3 +26,5 @@
 
 # gradle
 .gradle
+
+**/build
