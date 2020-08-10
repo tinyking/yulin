@@ -2,8 +2,9 @@ plugins {
     id 'java'
 }
 
-group 'io.github.tinyking'
-version '1.0-SNAPSHOT'
+
+
+description = "YuLin Utils"
 
 repositories {
     mavenCentral()

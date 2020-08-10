@@ -1,11 +1,12 @@
 package io.github.tinyking.yulin.utils;
 
-import static org.junit.Assert.*;
+import static java.util.Calendar.YEAR;
+import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -22,7 +23,9 @@ public class DateUtilsTest {
         String dateStr = "2020-08-06";
         Date parse = DateUtils.parse(dateStr);
 
-        System.out.println(parse.toString());
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(parse);
+        assertEquals(2020, instance.get(YEAR));
     }
 
     @Test
