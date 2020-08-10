@@ -25,4 +25,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Public with Gradle
-      run: ./gradlew :publishGprPublicationToGitHubPackagesRepository
+      run: ./gradlew :yulin-utils:publishGprPublicationToGitHubPackagesRepository
